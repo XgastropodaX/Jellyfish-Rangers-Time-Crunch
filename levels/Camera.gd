@@ -7,7 +7,7 @@ func _ready():
 
 func _process(_delta):
 	if player == null:
-		player = get_node("/root/Game/Player_Container/Player")
+		player = get_node("/root/Level3/Player_Container/Player")
 	if player != null:
 		position = player.position
 

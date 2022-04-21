@@ -320,10 +320,8 @@ process_mode = 0
 limit_bottom = 4000
 limit_smoothed = true
 
-
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 14 )
 autoplay = true
-
 
 [connection signal="body_entered" from="Exit_to_4" to="Exit_to_4" method="_on_Exit_body_entered"]

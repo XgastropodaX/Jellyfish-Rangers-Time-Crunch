@@ -1,8 +1,6 @@
-[gd_scene load_steps=17 format=2]
-
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Assets/It's Time To Run.ogg" type="AudioStream" id=1]
-
 [ext_resource path="res://Player/Player_Container.gd" type="Script" id=2]
 [ext_resource path="res://Assets/portal_end.png" type="Texture" id=3]
 [ext_resource path="res://Levels/Exit.gd" type="Script" id=4]
@@ -14,6 +12,7 @@
 [ext_resource path="res://Assets/wall.png" type="Texture" id=10]
 [ext_resource path="res://Assets/boss door.png" type="Texture" id=11]
 [ext_resource path="res://Assets/Window.png" type="Texture" id=12]
+[ext_resource path="res://Enemies/Miniboss.tscn" type="PackedScene" id=13]
 
 [sub_resource type="TileSet" id=21]
 0/name = "background wall.png 0"
@@ -125,7 +124,7 @@ points = PoolVector2Array( 65, 67, 1, 67, 1, 0, 65, 0 )
 0/shapes = [  ]
 0/z_index = 0
 
-[node name="Game" type="Node2D"]
+[node name="Level3" type="Node2D"]
 
 [node name="Background" type="TileMap" parent="."]
 modulate = Color( 0.501961, 0.501961, 0.501961, 1 )
@@ -191,5 +190,10 @@ process_mode = 0
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 1 )
 autoplay = true
+
+[node name="Miniboss" parent="." instance=ExtResource( 13 )]
+position = Vector2( 818, 439 )
+
+[node name="Effects" type="Node2D" parent="."]
 
 [connection signal="body_entered" from="Exit_to_4" to="Exit_to_4" method="_on_Exit_body_entered"]

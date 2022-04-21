@@ -1,5 +1,6 @@
 extends Node
 
+var VP = Vector2.ZERO
 var fade = null
 var fade_speed = 0.015
 
@@ -7,6 +8,13 @@ var fade_in = false
 var fade_out = ""
 
 var death_zone = 1000
+
+func _ready():
+	VP = get_viewport().size
+	var _signal = get_tree().get_root().connect("size_changed", self, "_resize")
+
+func _resize():
+	VP = get_viewport().size
 
 func _physics_process(_delta):
 	if fade == null:
