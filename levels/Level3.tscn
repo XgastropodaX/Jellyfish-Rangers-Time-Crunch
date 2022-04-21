@@ -1,5 +1,8 @@
 [gd_scene load_steps=17 format=2]
 
+
+[ext_resource path="res://Assets/It's Time To Run.ogg" type="AudioStream" id=1]
+
 [ext_resource path="res://Player/Player_Container.gd" type="Script" id=2]
 [ext_resource path="res://Assets/portal_end.png" type="Texture" id=3]
 [ext_resource path="res://Levels/Exit.gd" type="Script" id=4]
@@ -161,7 +164,7 @@ script = ExtResource( 2 )
 [node name="Backup_Camera" type="Camera2D" parent="Player_Container"]
 position = Vector2( 200, 200 )
 limit_left = 0
-limit_right = 3760
+limit_right = 6000
 limit_bottom = 600
 
 [node name="Enemy_Container" type="Node2D" parent="."]
@@ -184,5 +187,9 @@ tile_data = PoolIntArray( 1441821, 0, 0, 1441822, 0, 0, 1441823, 0, 0 )
 [node name="Camera" parent="." instance=ExtResource( 5 )]
 current = false
 process_mode = 0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+autoplay = true
 
 [connection signal="body_entered" from="Exit_to_4" to="Exit_to_4" method="_on_Exit_body_entered"]

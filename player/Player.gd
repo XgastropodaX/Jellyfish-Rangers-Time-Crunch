@@ -13,10 +13,12 @@ export var move_speed = 20
 export var max_move = 300
 
 export var jump_speed = 100
-export var max_jump = 1075
+
+export var max_jump = 1200
 
 export var leap_speed = 100
-export var max_leap = 1075
+export var max_leap = 1200
+
 
 var moving = false
 var is_jumping = false
@@ -30,7 +32,7 @@ func _physics_process(_delta):
 	velocity.x = clamp(velocity.x,-max_move,max_move)
 	if Input.is_action_pressed("attack"):
 		set_animation("Attacking")
-		#$AttackTimer.start()
+
 	if direction < 0 and not $AnimatedSprite.flip_h: $AnimatedSprite.flip_h = true
 	if direction > 0 and $AnimatedSprite.flip_h: $AnimatedSprite.flip_h = false
 	
@@ -61,5 +63,8 @@ func die():
 	queue_free()
 
 
-func _on_AttackTimer_timeout():
-	set_animation("idle")
+
+func _on_AnimatedSprite_animation_finished():
+	if !Input.is_action_pressed("jump"):
+		set_animation("Idle")
+
