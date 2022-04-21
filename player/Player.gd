@@ -13,10 +13,10 @@ export var move_speed = 20
 export var max_move = 300
 
 export var jump_speed = 100
-export var max_jump = 1000
+export var max_jump = 1075
 
 export var leap_speed = 100
-export var max_leap = 1000
+export var max_leap = 1075
 
 var moving = false
 var is_jumping = false
